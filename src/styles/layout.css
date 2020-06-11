@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Quattrocento+Sans&display=swap");
+
 html {
-  font-family: sans-serif;
+  font-family: "Quattrocento Sans", sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -224,7 +226,6 @@ textarea {
 }
 
 html {
-  font: 112.5%/1.45em georgia, serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -243,7 +244,6 @@ html {
 
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -591,13 +591,13 @@ ul li {
   padding-left: 0;
 }
 
-li>ol {
+li > ol {
   margin-left: 1.45rem;
   margin-bottom: calc(1.45rem / 2);
   margin-top: calc(1.45rem / 2);
 }
 
-li>ul {
+li > ul {
   margin-left: 1.45rem;
   margin-bottom: calc(1.45rem / 2);
   margin-top: calc(1.45rem / 2);
@@ -615,7 +615,7 @@ p *:last-child {
   margin-bottom: 0;
 }
 
-li>p {
+li > p {
   margin-bottom: calc(1.45rem / 2);
 }
 
@@ -713,4 +713,16 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+/* Footer React Icons */
+.social-svg-icon {
+  fill: rgba(128, 128, 128, 0.6) !important;
+}
+.social-svg-mask {
+  fill: #fff !important;
+}
+
+.social-svg:hover .social-svg-icon {
+  fill: gray !important;
 }

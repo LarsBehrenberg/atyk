@@ -18,6 +18,7 @@ const Wrapper = styled.div`
 
 const Menu = styled.div`
   display: flex;
+  align-items: center;
   a {
     margin-left: 3rem;
     display: inline;
@@ -43,15 +44,22 @@ const Title = styled.h1`
   width: auto;
 `
 
+const Logo = styled.img`
+  width: 176px;
+  height: 41px;
+  display: inline-block;
+`
+
 const Header = ({ siteTitle }) => (
   <Wrapper>
-    <Title>{siteTitle}</Title>
+    {/* <Title>{siteTitle}</Title> */}
+    <Logo src="logo/logo.png" alt="logo" />
     <Menu>
       <p>Menu</p>
-      <Link>Work</Link>
-      <Link>Design</Link>
-      <Link>About</Link>
-      <Link>Contact</Link>
+      <Link to="/">Work</Link>
+      <Link to="/">Design</Link>
+      <Link to="/">About</Link>
+      <Link to="/">Contact</Link>
     </Menu>
   </Wrapper>
 )
