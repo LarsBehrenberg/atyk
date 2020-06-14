@@ -8,7 +8,6 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-
   padding: 20px 20px;
 
   @media only screen and (min-width: 40.063em) {
@@ -58,6 +57,7 @@ const Logo = styled.img`
   width: 176px;
   height: 41px;
   display: inline-block;
+  margin: 0;
 `
 
 const Header = ({ siteTitle }) => (
