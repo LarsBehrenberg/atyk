@@ -1,6 +1,6 @@
 import React from "react"
 
-export default Text = () => (
+const Text = () => (
   <>
     <h2>大島 淳之</h2>
     <p>
@@ -37,3 +37,5 @@ export default Text = () => (
     </p>
   </>
 )
+
+export default Text
