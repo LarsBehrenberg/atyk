@@ -1,7 +1,6 @@
 import React from "react"
 import { Layout } from "layout"
-import SEO from "../components/seo"
-import { Gallery } from "components"
+import { Gallery, SEO } from "components"
 import { graphql } from "gatsby"
 
 const IndexPage = ({ data }) => {
@@ -16,11 +15,11 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allFile(filter: { absolutePath: { regex: "/gallery-assets/" } }) {
+    allFile(filter: { absolutePath: { regex: "/front-gallery/" } }) {
       nodes {
         id
         childImageSharp {
-          fluid(maxWidth: 1920, traceSVG: { color: "#2B2B2F" }) {
+          fluid(maxWidth: 1920) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }

@@ -1,2 +1,5 @@
 export { default as SEO } from "./seo"
 export { default as Gallery } from "./Index/Gallery"
+export { default as Grid } from "./Grid"
+export { default as TagButton } from "./Works/TagButton"
+export { default as Text } from "./About/Text.jsx"

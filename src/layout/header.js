@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import styled from "@emotion/styled"
+import image from "../../static/logo/logo.png"
 
 const Wrapper = styled.div`
   width: 100%;
@@ -11,8 +12,11 @@ const Wrapper = styled.div`
   padding: 20px 20px;
 
   @media only screen and (min-width: 40.063em) {
+    position: fixed;
     height: 80px;
     padding: 20px 60px;
+    z-index: 30;
+    background-color: white;
   }
 `
 
@@ -23,25 +27,31 @@ const Menu = styled.div`
     margin-left: 3rem;
     display: inline;
     text-decoration: none;
-    color: black;
-  }
-
-  p {
-    display: none;
+    color: #353535;
   }
 
   @media (max-width: 720px) {
     a {
       display: none;
     }
-    p {
-      display: block;
+    .mobile-toggle {
+      div {
+        width: 30px;
+        height: 30px;
+        position: relative;
+      }
+
+      span {
+        display: block;
+        position: absolute;
+        width: 16px;
+        height: 2px;
+        background: #151515;
+        content: " ";
+        left: 7px;
+      }
     }
   }
-`
-
-const Title = styled.h1`
-  width: auto;
 `
 
 const Logo = styled.img`
@@ -52,14 +62,27 @@ const Logo = styled.img`
 
 const Header = ({ siteTitle }) => (
   <Wrapper>
-    {/* <Title>{siteTitle}</Title> */}
-    <Logo src="logo/logo.png" alt="logo" />
+    <Link to="/">
+      <Logo src={image} alt={siteTitle} />
+    </Link>
     <Menu>
-      <p>Menu</p>
-      <Link to="/">Work</Link>
-      <Link to="/">Design</Link>
-      <Link to="/">About</Link>
-      <Link to="/">Contact</Link>
+      <span className="mobile-toggle">
+        <div style={{ transform: "matrix(1, 0, 0, 1, 0, 0)" }}>
+          <span
+            style={{ transform: "matrix(1, 0, 0, 1, -1.6, 0)", top: "10px" }}
+          ></span>
+          <span
+            style={{ transform: "matrix(1, 0, 0, 1, 1.6, 0)", top: "14px" }}
+          ></span>
+          <span
+            style={{ transform: "matrix(1, 0, 0, 1, -1.6, 0)", top: "18px" }}
+          ></span>
+        </div>
+      </span>
+      <Link to="/works">Works</Link>
+      <Link to="/design">Design</Link>
+      <Link to="/about">About</Link>
+      <Link to="/contact">Contact</Link>
     </Menu>
   </Wrapper>
 )

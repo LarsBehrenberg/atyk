@@ -16,7 +16,7 @@ import "../styles/layout.css"
 
 const Bar = styled.div`
   display: inline-block;
-  position: absolute;
+  position: fixed;
   color: rgba(128, 128, 128, 0.7);
   font-size: 12px;
   top: 50%;
@@ -57,7 +57,7 @@ const Bar = styled.div`
 const ContentWrapper = styled.div`
   margin: 0 30px;
   max-width: 960;
-  padding: 0 1.0875rem 1.45rem;
+  padding: 80px 1.0875rem 1.45rem;
 
   @media (max-width: 650px) {
     padding: 0 0 1.45rem;
@@ -69,8 +69,10 @@ const ContentWrapper = styled.div`
 `
 
 const Footer = styled.footer`
-  position: absolute;
-  bottom: 20px;
+  position: fixed;
+  margin-top: auto;
+  padding: 20px;
+  bottom: 0px;
   left: 50%;
   transform: translate(-50%);
 `
@@ -111,7 +113,7 @@ const Layout = ({ children }) => {
             style={{
               width: "30px",
               height: "30px",
-              marginLeft: "10px",
+              marginLeft: "20px",
             }}
           />
         </Footer>
