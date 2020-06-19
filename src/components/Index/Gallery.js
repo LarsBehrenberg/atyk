@@ -10,11 +10,7 @@ const GalleryWrapper = styled.div`
 
 const ImageWrapper = styled.div`
   width: 100%;
-  height: 82vh;
-
-  @media (max-width: 650px) {
-    height: 100vh;
-  }
+  height: calc(100vh - 140px);
 `
 
 const CarouselImage = styled.img`
