@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 import Img from "gatsby-image"
+import { SRLWrapper } from "simple-react-lightbox"
 
 const Container = styled.div`
   display: flex;
@@ -29,9 +30,17 @@ const Column = styled.div`
     flex: 100%;
     max-width: 100%;
   }
+  img {
+    filter: blur(0px);
+    transition: filter 0.25s !important;
+  }
+  img:hover {
+    filter: blur(2px);
+  }
 `
 
 const Grid = ({ images, category }) => {
+  // Change this variable to change the columns displayed
   let columnAmount = 4
 
   const filteredImages = [...images].filter(image =>
@@ -52,16 +61,31 @@ const Grid = ({ images, category }) => {
     }
   }
 
+  const options = {
+    settings: {
+      autoplaySpeed: 1500,
+      transitionSpeed: 900,
+    },
+    buttons: {
+      showDownloadButton: false,
+    },
+    caption: {
+      showCaption: false,
+    },
+  }
+
   return (
-    <Container>
-      {columns.map((column, index) => (
-        <Column key={`column-${index}`}>
-          {column.map(({ id, childImageSharp }) => (
-            <Img fluid={childImageSharp.fluid} alt={id} key={id} />
-          ))}
-        </Column>
-      ))}
-    </Container>
+    <SRLWrapper options={options}>
+      <Container>
+        {columns.map((column, index) => (
+          <Column key={`column-${index}`}>
+            {column.map(({ id, childImageSharp }) => (
+              <Img fluid={childImageSharp.fluid} alt={id} key={id} />
+            ))}
+          </Column>
+        ))}
+      </Container>
+    </SRLWrapper>
   )
 }
 

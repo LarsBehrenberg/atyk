@@ -57,7 +57,7 @@ const Bar = styled.div`
 const ContentWrapper = styled.div`
   margin: 0 30px;
   max-width: 960;
-  padding: 80px 1.0875rem 1.45rem;
+  padding: 0px 1.0875rem 1.45rem;
 
   @media (max-width: 650px) {
     padding: 0 0 1.45rem;
@@ -97,7 +97,7 @@ const Layout = ({ children }) => {
       <aside>
         <Bar className="right-side">atykosm.net</Bar>
       </aside>
-      <ContentWrapper>
+      <ContentWrapper id="childWrapper">
         <main>{children}</main>
         <Footer>
           <SocialIcon
@@ -105,11 +105,18 @@ const Layout = ({ children }) => {
             style={{
               width: "30px",
               height: "30px",
-              fill: "gray",
             }}
           />
           <SocialIcon
             url="https://www.instagram.com/atyk_naturegraphy/"
+            style={{
+              width: "30px",
+              height: "30px",
+              marginLeft: "20px",
+            }}
+          />
+          <SocialIcon
+            url="mailto:info@atykosm.net"
             style={{
               width: "30px",
               height: "30px",

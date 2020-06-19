@@ -3,6 +3,7 @@ import { Layout } from "layout"
 import { SEO, Grid, TagButton } from "components"
 import { graphql } from "gatsby"
 import styled from "@emotion/styled"
+import SimpleReactLightbox from "simple-react-lightbox"
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -35,7 +36,9 @@ const Works = ({ data }) => {
       <ButtonContainer>
         {categoryArray.map(button => Button(button))}
       </ButtonContainer>
-      <Grid images={nodes} category={state.activeCategory.toLowerCase()} />
+      <SimpleReactLightbox>
+        <Grid images={nodes} category={state.activeCategory.toLowerCase()} />
+      </SimpleReactLightbox>
     </Layout>
   )
 }
