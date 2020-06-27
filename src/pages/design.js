@@ -1,40 +1,37 @@
 import React from "react"
 import { Layout } from "layout"
-import { SEO } from "components"
+import { SEO, Grid } from "components"
+import SimpleReactLightbox from "simple-react-lightbox"
+import { graphql } from "gatsby"
 
-const Design = () => {
+const Design = ({ data }) => {
   return (
     <Layout>
       <SEO title="Design" />
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          textAlign: "center",
-        }}
-      >
-        <h1>Not quiet yet.</h1>
-        <p>But eventually we will have the design page here.</p>
-      </div>
+      <SimpleReactLightbox>
+        <Grid images={data.allFile.nodes} onDesignPage={true} />
+      </SimpleReactLightbox>
     </Layout>
   )
 }
 
-// export const query = graphql`
-//   query {
-//     allFile(filter: { absolutePath: { regex: "/front-gallery/" } }) {
-//       nodes {
-//         id
-//         childImageSharp {
-//           fluid(maxWidth: 1920, traceSVG: { color: "#2B2B2F" }) {
-//             ...GatsbyImageSharpFluid_withWebp_tracedSVG
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query {
+    allFile(
+      filter: { absolutePath: { regex: "/design/" } }
+      sort: { order: ASC, fields: name }
+    ) {
+      nodes {
+        id
+        name
+        childImageSharp {
+          fluid(maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  }
+`
 
 export default Design

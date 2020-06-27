@@ -39,7 +39,7 @@ const Column = styled.div`
   }
 `
 
-const Grid = ({ images, category }) => {
+const Grid = ({ images, category = "", onDesignPage = false }) => {
   // Change this variable to change the columns displayed
   let columnAmount = 4
 
@@ -70,8 +70,33 @@ const Grid = ({ images, category }) => {
       showDownloadButton: false,
     },
     caption: {
-      showCaption: false,
+      showCaption: onDesignPage ? true : false,
     },
+  }
+
+  // Only needed for Design images
+  const altTitles = [
+    "背景には冬の幻想的な雰囲気を感じるイラストを設定し、その中にコンサート情報を紹介。同系色を多用することで、まとまりのあるデザインに仕上げています。",
+    "フルタヤ椎茸",
+    "はこぶ１００",
+    "せんちゃ、日本のお茶 (煎茶)",
+    "北海道の",
+    "生徒募集",
+    "長年の",
+  ]
+
+  const columnedTitles = []
+
+  if (altTitles !== 0) {
+    for (
+      let x = 0;
+      x < altTitles.length;
+      x += altTitles.length / columnAmount
+    ) {
+      columnedTitles.push(
+        altTitles.slice(x, x + altTitles.length / columnAmount)
+      )
+    }
   }
 
   return (
@@ -79,8 +104,16 @@ const Grid = ({ images, category }) => {
       <Container>
         {columns.map((column, index) => (
           <Column key={`column-${index}`}>
-            {column.map(({ id, childImageSharp }) => (
-              <Img fluid={childImageSharp.fluid} alt={id} key={id} />
+            {column.map(({ id, childImageSharp }, i) => (
+              <Img
+                fluid={childImageSharp.fluid}
+                alt={
+                  onDesignPage
+                    ? `${columnedTitles[index][i]} - let's put a proper description here`
+                    : id
+                }
+                key={id}
+              />
             ))}
           </Column>
         ))}
